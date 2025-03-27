@@ -1,16 +1,30 @@
-This project simulates an intelligent vacuum cleaner agent operating in a 2D grid environment. Each cell in the grid can be either clean or dirty, and the agent must navigate the grid to clean all dirty cells efficiently.
+This repository contains two different implementations of a vacuum cleaner agent designed to clean a grid-based environment. Each approach solves the same core problem — cleaning all dirty cells in a grid — but does so using different AI paradigms:
 
-The agent uses the following search strategies to determine the optimal path:
+PythonApplication3.py: State-space search approach
+PythonApplication4.py: Pathfinding-based navigation approach
 
+
+
+PythonApplication3.py – State-Space Search
+This version treats the entire grid and agent state as part of the search node. It explores possible sequences of actions (move up/down/left/right, suck) to reach a goal state where all cells are clean.
+
+Key Features:
+- Uses successor functions to generate all possible agent actions.
+Implements:
 - Uniform Cost Tree Search
 - Uniform Cost Graph Search
+- Iterative Deepening Search (IDS)
+
+
+
+PythonApplication4.py – Pathfinding with Targeted Cleaning
+This version treats each dirty cell as a sub-goal and uses pathfinding algorithms to move the agent directly to each dirty location in sequence.
+
+Key Features:
+The agent navigates the grid and cleans specific target cells.
+Implements:
+- Uniform Cost Search (Tree & Graph)
 - Iterative Deepening Depth-First Search (IDDFS)
+- Tracks detailed movement costs and prints performance metrics.
 
-Each movement and cleaning action incurs a specific cost:
-- Move Left: 1.0
-- Move Right: 0.9
-- Move Up: 0.8
-- Move Down: 0.7
-- Clean (Suck): 0.6
 
-The simulation reports metrics such as total execution time, number of moves, nodes generated, nodes expanded, and total cost. This allows for a comparative analysis of search strategies in agent-based pathfinding tasks.
